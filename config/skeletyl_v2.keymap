@@ -70,6 +70,24 @@
 };
 
 / {
+	macros {
+    ZMK_MACRO(symnum,
+              wait-ms = <30>;
+              tap-ms = <40>;
+              bindings = <&macro_press &mo SYMNUM>,
+                         <&macro_tap &rgb_ug RGB_COLOR_HSB(36, 244, 255)>,
+                         <&macro_pause_for_release>,
+                         <&macro_release &mo SYMNUM>,
+                         <&macro_tap &rgb_ug RGB_COLOR_HSB(255, 189, 36)>;
+                       )
+                         
+		ZMK_MACRO(vim_q,  &kp COLON &kp Q &kp EXCL)
+		ZMK_MACRO(vim_s,  &kp COLON &kp W &kp Q)
+		ZMK_MACRO(dir_up, &kp DOT &kp DOT &kp FSLH)
+	};
+};
+
+/ {
 
   chosen {
     zmk,battery = &vbatt;
@@ -129,7 +147,7 @@
       &bt BT_CLR &bt  BT_PRV &bt  BT_NXT &kp    COLON &ext_power EP_TOG                   &kp    CARET &kp     LPAR &kp     UP &kp     RPAR &sl  3
       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0                   &kp ELLIPSIS &kp     LEFT &kp    DOWN &kp   RIGHT &sk     LALT
       &rgb_ug RGB_TOG &rgb_ug RGB_EFR &rgb_ug RGB_EFF &rgb_ug RGB_BRD &rgb_ug RGB_BRI                   &kp     PIPE &kp     LBRC &kp     BSLH &kp     RBRC &kp    GRAVE
-                                             &trans       &trans       &none      &none  &trans       &trans
+                                             &trans       &symnum       &none      &none  &trans       &trans
       >;
     };
 
