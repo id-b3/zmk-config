@@ -71,19 +71,18 @@
 
 / {
 	macros {
-    ZMK_MACRO(symnum,
-              wait-ms = <30>;
-              tap-ms = <40>;
-              bindings = <&macro_press &mo SYMNUM>,
-                         <&macro_tap &rgb_ug RGB_COLOR_HSB(36, 244, 255)>,
-                         <&macro_pause_for_release>,
-                         <&macro_release &mo SYMNUM>,
-                         <&macro_tap &rgb_ug RGB_COLOR_HSB(255, 189, 36)>;
-                       )
-                         
-		ZMK_MACRO(vim_q,  &kp COLON &kp Q &kp EXCL)
-		ZMK_MACRO(vim_s,  &kp COLON &kp W &kp Q)
-		ZMK_MACRO(dir_up, &kp DOT &kp DOT &kp FSLH)
+		ZMK_MACRO(symnum,
+		      wait-ms = <30>;
+		      tap-ms = <40>;
+		      bindings = <&macro_press &mo SYMNUM>,
+				 <&macro_tap &rgb_ug RGB_COLOR_HSB(36, 244, 255)>,
+				 <&macro_pause_for_release>,
+				 <&macro_release &mo SYMNUM>,
+				 <&macro_tap &rgb_ug RGB_COLOR_HSB(255, 189, 36)>;
+			       )
+		ZMK_MACRO(vim_q, wait-ms = <30>; tap-ms = <40>; bindings = <&kp COLON &kp B &kp D>;)
+		ZMK_MACRO(vim_s, wait-ms = <30>; tap-ms = <40>; bindings = <&kp COLON &kp W &kp Q>;)
+		ZMK_MACRO(dir_up, wait-ms = <30>; tap-ms = <40>; bindings = <&kp DOT &kp DOT &kp FSLH>;)
 	};
 };
 
