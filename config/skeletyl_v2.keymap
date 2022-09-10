@@ -15,22 +15,6 @@
 #define SHORTCUT 2
 #define SPECIAL 3
 
-#define LAUNCHER (LG(SPACE))
-#define CTRL_TAB (LC(TAB))
-#define C_S_TAB (LC(LS(TAB)))
-#define ELLIPSIS (LA(SEMICOLON))
-
-#define SPC_PREVIOUS (LC(LA(LEFT)))
-#define S_PRV SPC_PREVIOUS
-
-#define SPC_NEXT (LC(LA(RIGHT)))
-#define S_NXT SPC_NEXT
-
-&sk {
-  release-after-ms = <2000>;
-  quick-release;
-};
-
 / {
 
   combos {
@@ -41,12 +25,12 @@
         bindings = <&kp ESC>;
       };
       combo_underscore {
-        timeout-ms = <40>;
+        timeout-ms = <20>;
         key-positions = <12 13>;
         bindings = <&kp UNDER>;
       };
       combo_quote {
-        timeout-ms = <40>;
+        timeout-ms = <20>;
         key-positions = <17 18>;
         bindings = <&kp SQT>;
       };
@@ -71,15 +55,6 @@
 
 / {
 	macros {
-		ZMK_MACRO(symnum,
-		      wait-ms = <30>;
-		      tap-ms = <40>;
-		      bindings = <&macro_press &mo SYMNUM>,
-				 <&macro_tap &rgb_ug RGB_COLOR_HSB(36, 244, 255)>,
-				 <&macro_pause_for_release>,
-				 <&macro_release &mo SYMNUM>,
-				 <&macro_tap &rgb_ug RGB_COLOR_HSB(255, 189, 36)>;
-			       )
 		ZMK_MACRO(vim_q, wait-ms = <30>; tap-ms = <40>; bindings = <&kp COLON &kp B &kp D>;)
 		ZMK_MACRO(vim_s, wait-ms = <30>; tap-ms = <40>; bindings = <&kp COLON &kp W &kp Q>;)
 		ZMK_MACRO(dir_up, wait-ms = <30>; tap-ms = <40>; bindings = <&kp DOT &kp DOT &kp FSLH>;)
@@ -129,33 +104,34 @@
       &kp        Z &kp        X &kp        C &kp        V &kp        B                   &kp        K &kp        M &kp    COMMA &kp      DOT &kp     FSLH
                                        &lt SYMNUM ENTER   &mt  LSHFT SPACE  &none      &none  &kp  BSPC   &lt   SHORTCUT TAB
       >;
-      			sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp UP DOWN>;
+      			sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
     };
 
     symnum_layer {
       bindings = <
-      &kp LA(F4)    &kp  DQT &kp      AT &kp LPAR &kp RPAR                         &none        &kp     N7 &kp       N8 &kp      N9 &none
-      &kp NON_US_HASH &kp EQUAL &kp    MINUS &kp   EXCL &kp PRCNT                          &none        &kp     N4 &kp     N5 &kp    N6 &kp    N0
-      &none &kp LBRC  &kp RBRC &kp   LBKT  &kp    RBKT                   &none        &kp     N1 &kp    N2  &kp    N3  &kp DOT
-                                             &trans &trans &none      &none  &trans &trans
+      &kp LA(F4)      &kp DQT   &kp AT    &kp LPAR &kp RPAR         &none &kp N7 &kp N8 &kp N9 &none
+      &kp NON_US_HASH &kp EQUAL &kp MINUS &kp EXCL &kp PRCNT        &none &kp N4 &kp N5 &kp N6 &kp N0
+      &none           &kp LBRC  &kp RBRC  &kp LBKT &kp RBKT         &none &kp N1 &kp N2 &kp N3 &kp DOT
+                                &trans    &trans   &none            &none &trans &trans
       >;
     };
 
     shortcut_layer {
       bindings = <
-      &bt BT_CLR &bt  BT_PRV &bt  BT_NXT &kp    COLON &ext_power EP_TOG                   &kp    CARET &kp     LPAR &kp     UP &kp     RPAR &sl  3
-      &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0                   &kp ELLIPSIS &kp     LEFT &kp    DOWN &kp   RIGHT &sk     LALT
-      &rgb_ug RGB_TOG &rgb_ug RGB_EFR &rgb_ug RGB_EFF &rgb_ug RGB_BRD &rgb_ug RGB_BRI                   &kp     PIPE &kp     LBRC &kp     BSLH &kp     RBRC &kp    GRAVE
-                                             &trans       &symnum       &none      &none  &trans       &trans
+      &none &none &none &none &none         &none &none    &kp UP   &none     &none  
+      &none &none &none &none &none         &none &kp LEFT &kp DOWN &kp RIGHT &none  
+      &none &none &none &none &none         &none &none &none &none &none  
+                  &none &none &none         &none &none &none  
       >;
     };
 
     special_layer {
       bindings = <
-      &none        &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0                   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none
-      &rgb_ug RGB_TOG &rgb_ug RGB_EFR &rgb_ug RGB_EFF &rgb_ug RGB_BRD &rgb_ug RGB_BRI                           &none        &none        &none        &none        &none
-      &ext_power EP_TOG        &bt   BT_PRV &bt   BT_CLR &bt   BT_NXT &bootloader                    &bootloader  &bt   BT_PRV &bt   BT_CLR &bt   BT_NXT &none
-                                             &kp LAUNCHER &none        &none      &none  &none        &kp LAUNCHER
+      &bt BT_CLR   &bt BT_NXT   &bt BT_PRV   &none        &none                &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_EFF &rgb_ug RGB_SAI  
+      &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0         &none &none &none &none &none  
+      &none &none &none &none &none                                            &none &none &none &none &none  
+                  &none &none &none                                            &none &none &none  
+
       >;
     };
 
