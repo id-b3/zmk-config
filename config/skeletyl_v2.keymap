@@ -12,7 +12,7 @@
 
 #define COLEMAK 0
 #define SYMNUM 1
-#define SHORTCUT 2
+#define NAV 2
 #define SPECIAL 3
 
 / {
@@ -44,10 +44,10 @@
         key-positions = <7 8>;
         bindings = <&kp NON_US_BSLH>;
       };
-      combo_bluetooth {
-        timeout-ms = <50>;
-        key-positions = <7 8 9>;
-        bindings = <&sl 3>;  
+      combo_caps {
+        timeout-ms = <40>;
+        key-positions = <12 17>;
+        bindings = <&caps_word>;
       };
   };
 
@@ -102,7 +102,7 @@
       &kp        Q &kp        W &kp        F &kp        P &kp        G                   &kp        J &kp        L &kp        U &kp        Y &kp     SEMI
       &hm   LGUI A &hm   LALT R &hm  LSHFT S &hm  LCTRL T &kp        D                   &kp        H &hm  RCTRL N &hm  RSHFT E &hm   LALT I &hm   RGUI O
       &kp        Z &kp        X &kp        C &kp        V &kp        B                   &kp        K &kp        M &kp    COMMA &kp      DOT &kp     FSLH
-                                       &lt SYMNUM ENTER   &mt  LSHFT SPACE  &none      &none  &kp  BSPC   &lt   SHORTCUT TAB
+                                       &mt LSHIFT ENTER  &lt SYMNUM SPACE  &none      &none  &kp  BSPC   &lt   NAV TAB
       >;
       			sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
     };
@@ -116,10 +116,10 @@
       >;
     };
 
-    shortcut_layer {
+    nav_layer {
       bindings = <
-      &none &none &none &none &none         &none &none    &kp UP   &none     &none  
-      &none &none &none &none &none         &none &kp LEFT &kp DOWN &kp RIGHT &none  
+      &none &none &none &none &none         &kp PG_UP &kp HOME &kp UP   &kp END    &none  
+      &none &none &none &none &none         &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &none  
       &none &none &none &none &none         &none &none &none &none &none  
                   &none &none &none         &none &none &none  
       >;
