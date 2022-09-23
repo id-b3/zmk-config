@@ -14,6 +14,7 @@
 #define SYMNUM 1
 #define NAV 2
 #define SPECIAL 3
+#define GAMING 4
 
 / {
 	macros {
@@ -138,11 +139,20 @@
 
     special_layer {
       bindings = <
-      &bt BT_CLR   &bt BT_NXT   &bt BT_PRV   &none        &none                &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_EFF &rgb_ug RGB_SAI  
+      &bt BT_CLR   &bt BT_NXT   &bt BT_PRV   &none        &to GAMING                &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_EFF &rgb_ug RGB_SAI  
       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0         &rgb_ug RGB_OFF &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFR &rgb_ug RGB_SAD  
       &none &none &none &none &none                                            &none &none &none &none &none  
                   &none &none &none                                            &none &none &none  
 
+      >;
+    };
+    
+    gaming_layer {
+      bindings = <
+      &kp TAB &kp Q &kp W &kp E &kp R         &kp PG_UP &kp HOME &kp UP   &kp END    &to COLEMAK  
+      &kp LSHFT &kp A &kp S &kp D &kp F         &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &none  
+      &kp Z &kp X &kp C &kp V &kp B         &none &none &none &none &none  
+                  &kp LALT &lt SYMNUM SPACE &none         &none &none &none  
       >;
     };
 
