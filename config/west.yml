@@ -8,8 +8,8 @@ manifest:
       url-base: https://github.com/nickconway
   projects:
     - name: zmk
-      remote: nick-conway
-      revision: dev
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
