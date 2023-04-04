@@ -8,8 +8,8 @@ manifest:
       url-base: https://github.com/nickconway
   projects:
     - name: zmk
-      remote: infused-kim
-      revision: my-changes/split-encoder
+      remote: nick-conway
+      revision: dev
       import: app/west.yml
   self:
     path: config
