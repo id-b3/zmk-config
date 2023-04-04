@@ -101,7 +101,7 @@
                          &mt LSHIFT ENTER  &lt 1 SPACE   &none           &none  &kp BACKSPACE    &lt 2 TAB
             >;
 
-            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp RIGHT LEFT>;
         };
 
         symnum_layer {
