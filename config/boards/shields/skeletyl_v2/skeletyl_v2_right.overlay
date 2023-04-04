@@ -6,12 +6,12 @@
  
 #include "skeletyl_v2.dtsi"
 
-&default_transform {
-	col-offset = <5>;
-};
-
 &right_encoder {
 	status = "okay";
+};
+
+&default_transform {
+	col-offset = <5>;
 };
 
 &kscan0 {
