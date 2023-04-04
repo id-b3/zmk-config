@@ -6,10 +6,12 @@ manifest:
       url-base: https://github.com/infused-kim
     - name: nick-conway
       url-base: https://github.com/nickconway
+    - name: diogo
+      url-base: https://github.com/DiogoDoreto
   projects:
     - name: zmk
-      remote: nick-conway
-      revision: dev
+      remote: diogo
+      revision: waterfowl-encoders
       import: app/west.yml
   self:
     path: config
