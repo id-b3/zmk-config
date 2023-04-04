@@ -8,7 +8,7 @@ manifest:
       url-base: https://github.com/nickconway
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: infused-kim
       revision: main
       import: app/west.yml
   self:
