@@ -84,9 +84,7 @@
             tapping-term-ms = <220>;
             quick-tap-ms = <125>;
             flavor = "tap-preferred";
-            bindings =
-                <&kp>,
-                <&kp>;
+            bindings = <&kp>, <&kp>;
         };
     };
 
@@ -104,10 +102,10 @@
 
         colemak_layer {
             bindings = <
-     &kp Q       &kp W             &kp F        &kp P  &kp G    &kp J          &kp L        &kp U       &kp Y    &kp SEMI
-&hm LGUI A  &hm LALT R       &hm LSHFT S  &hm LCTRL T  &kp D    &kp H    &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm RGUI O
-     &kp Z       &kp X             &kp C        &kp V  &kp B    &kp K          &kp M    &kp COMMA     &kp DOT    &kp FSLH
-                        &mt LSHIFT ENTER  &lt 1 SPACE  &none    &none  &kp BACKSPACE    &lt 2 TAB
+&kp Q       &kp W       &kp F             &kp P        &kp G    &kp J  &kp L          &kp U        &kp Y       &kp SEMI
+&hm LGUI A  &hm LALT R  &hm LSHFT S       &hm LCTRL T  &kp D    &kp H  &hm RCTRL N    &hm RSHFT E  &hm LALT I  &hm RGUI O
+&kp Z       &kp X       &kp C             &kp V        &kp B    &kp K  &kp M          &kp COMMA    &kp DOT     &kp FSLH
+                        &mt LSHIFT ENTER  &lt 1 SPACE  &none    &none  &kp BACKSPACE  &lt 2 TAB
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp RIGHT LEFT>;
@@ -115,10 +113,10 @@
 
         symnum_layer {
             bindings = <
-     &kp LA(F4)     &kp AT    &kp DQT  &kp LPAR   &kp RPAR    &none  &kp N7  &kp N8  &kp N9    &none
-&kp NON_US_HASH  &kp EQUAL  &kp MINUS  &kp EXCL  &kp PRCNT    &none  &kp N4  &kp N5  &kp N6   &kp N0
-    &plus_minus   &kp LBRC   &kp RBRC  &kp LBKT   &kp RBKT    &none  &kp N1  &kp N2  &kp N3  &kp DOT
-                               &trans    &trans      &none    &none  &trans  &trans
+&kp LA(F4)       &kp AT     &kp DQT    &kp LPAR  &kp RPAR     &none  &kp N7  &kp N8  &kp N9  &none
+&kp NON_US_HASH  &kp EQUAL  &kp MINUS  &kp EXCL  &kp PRCNT    &none  &kp N4  &kp N5  &kp N6  &kp N0
+&plus_minus      &kp LBRC   &kp RBRC   &kp LBKT  &kp RBKT     &none  &kp N1  &kp N2  &kp N3  &kp DOT
+                            &trans     &trans    &none        &none  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT &inc_dec_kp RIGHT LEFT>;
@@ -126,31 +124,40 @@
 
         nav_layer {
             bindings = <
-&none  &kp F7  &kp F8  &kp F9  &kp F10    &kp PG_UP  &kp HOME    &kp UP    &kp END  &none
+&none  &kp F7  &kp F8  &kp F9  &kp F10    &kp PG_UP  &kp HOME  &kp UP    &kp END    &none
 &none  &kp F4  &kp F5  &kp F6  &kp F11    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none
-&none  &kp F1  &kp F2  &kp F3  &kp F12        &none     &none     &none      &none  &none
-                &none   &none    &none        &none     &none     &none
+&none  &kp F1  &kp F2  &kp F3  &kp F12    &none      &none     &none     &none      &none
+               &none   &none   &none      &none      &none     &none
             >;
         };
 
         special_layer {
             bindings = <
-  &bt BT_CLR    &bt BT_NXT    &bt BT_PRV         &none         &to 4    &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_EFF  &rgb_ug RGB_SAI
+&bt BT_CLR    &bt BT_NXT    &bt BT_PRV    &to 5         &to 4           &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_EFF  &rgb_ug RGB_SAI
 &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0    &rgb_ug RGB_OFF  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFR  &rgb_ug RGB_SAD
-       &none         &none         &none         &none         &none              &none            &none            &none            &none            &none
-                                   &none         &none         &none              &none            &none            &none
+&none         &none         &none         &none         &none           &none            &none            &none            &none            &none
+                            &none         &none         &none           &none            &none            &none
             >;
         };
 
         gaming_layer {
             bindings = <
-&kp ENTER  &kp Q    &kp W      &kp E  &kp R    &kp T  &kp Y    &kp U     &kp O  &to 0
-&kp LSHFT  &kp A    &kp S      &kp D  &kp F    &kp G  &kp J    &kp K     &kp L  &none
-&kp LCTRL  &kp Z    &kp X      &kp C  &kp V    &kp M  &kp I  &kp DOT  &kp LALT  &none
-                  &kp TAB  &kp SPACE  &none    &none  &none    &none
+&kp ENTER  &kp Q  &kp W    &kp E      &kp R    &kp T  &kp Y  &kp U    &kp O     &to 0
+&kp LSHFT  &kp A  &kp S    &kp D      &kp F    &kp G  &kp J  &kp K    &kp L     &none
+&kp LCTRL  &kp Z  &kp X    &kp C      &kp V    &kp M  &kp I  &kp DOT  &kp LALT  &none
+                  &kp TAB  &kp SPACE  &none    &none  &none  &none
             >;
 
             sensor-bindings = <&inc_dec_kp PG_DN PG_UP &inc_dec_kp PG_DN PG_UP>;
+        };
+
+        WotR {
+            bindings = <
+&kp ENTER  &kp Q  &kp W    &kp E      &kp G        &kp R   &kp N7  &kp N8  &kp N9  &to 0
+&kp LSHFT  &kp A  &kp S    &kp D      &kp H        &kp F   &kp N4  &kp N5  &kp N6  &kp F5
+&kp BSPC   &kp M  &kp J    &kp C      &kp I        &kp B   &kp N1  &kp N2  &kp N3  &kp F8
+                  &kp TAB  &kp SPACE  &kp SPACE    &trans  &trans  &trans
+            >;
         };
     };
 };
