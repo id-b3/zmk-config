@@ -7,6 +7,13 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
+
+#define COLEMAK 0
+#define SYMNUM 1
+#define NAV 2
+#define SPECIAL 3
+#define GAMING 4
 
 /* Uncomment this block if using RGB
 &led_strip {
@@ -15,6 +22,100 @@
     // chain-length = <25>; // Uncomment if using only per-key LEDs.
 };
  */
+
+ / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_esc {
+            timeout-ms = <40>;
+            key-positions = <1 2>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_underscore {
+            timeout-ms = <35>;
+            key-positions = <12 13>;
+            bindings = <&kp UNDER>;
+        };
+
+        combo_quote {
+            timeout-ms = <35>;
+            key-positions = <17 18>;
+            bindings = <&kp SQT>;
+        };
+
+        combo_del {
+            timeout-ms = <40>;
+            key-positions = <10 11>;
+            bindings = <&kp DEL>;
+        };
+
+        combo_bslsh {
+            timeout-ms = <40>;
+            key-positions = <7 8>;
+            bindings = <&kp NON_US_BSLH>;
+        };
+
+        combo_caps {
+            timeout-ms = <40>;
+            key-positions = <12 17>;
+            bindings = <&caps_word>;
+        };
+    };
+};
+
+/ {
+    chosen { zmk,battery = &vbatt; };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+        label = "VBATT";
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <125>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    macros {
+        plus_minus: plus_minus {
+            compatible = "zmk,behavior-macro";
+            label = "PLUS_MINUS";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_NUMBER_2 &kp KP_NUMBER_4 &kp KP_NUMBER_1>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+        };
+
+        mouse_jit: mouse_jit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp A>, <&macro_wait_time 10000>;
+
+            label = "MOUSE_JIT";
+        };
+    };
 
 / {
     keymap {
