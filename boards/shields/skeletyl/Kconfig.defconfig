@@ -7,8 +7,6 @@ if SHIELD_SKELETYL_LEFT
 config ZMK_KEYBOARD_NAME
 	default "Skeletyl Left"
 
-
-
 endif
 
 if SHIELD_SKELETYL_RIGHT
