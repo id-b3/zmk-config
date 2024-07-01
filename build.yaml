@@ -19,6 +19,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: kyria_rev3_left
+    shield: skeletyl
   - board: nice_nano_v2
-    shield: kyria_rev3_right
+    shield: skeletyl
