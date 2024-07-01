@@ -11,14 +11,6 @@
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
     };
-
-    &underglow {
-        status = "okay";
-        r = <255>;
-        g = <255>;
-        b = <255>;
-        brightness = <100>;
-    };
     
     left_encoder: encoder_left {
         compatible = "alps,ec11";
