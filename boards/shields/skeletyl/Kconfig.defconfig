@@ -1,22 +1,14 @@
-# Copyright (c) 2022 ZMK Contributors
 # SPDX-License-Identifier: MIT
- 
 
-if SHIELD_SKELETYL_LEFT
+# Settings common to both left and right Skeletyl shields
+if SHIELD_SKELETYL_LEFT || SHIELD_SKELETYL_RIGHT
 
-config ZMK_KEYBOARD_NAME
-	default "Skeletyl Left"
-
-endif
-
-if SHIELD_SKELETYL_RIGHT
-
-config ZMK_KEYBOARD_NAME
-	default "Skeletyl Right"
-
-config ZMK_SPLIT_ROLE_CENTRAL
+# Enable split keyboard support by default
+config ZMK_SPLIT
 	default y
 
+# Enable battery reporting proxy/fetching for split central role by default
+# This allows the central (usually left) side to report the peripheral's battery
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
 	default y
 
@@ -25,9 +17,23 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
 
 endif
 
-if SHIELD_SKELETYL_LEFT || SHIELD_SKELETYL_RIGHT
+# Settings specific to the left shield
+if SHIELD_SKELETYL_LEFT
 
-config ZMK_SPLIT
-	default y
-	
+config ZMK_KEYBOARD_NAME
+	default "Skeletyl Left"
+
+config ZMK_SPLIT_ROLE_PERIPHERAL
+  default y
+
+endif
+
+# Settings specific to the right shield
+if SHIELD_SKELETYL_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "Skeletyl Right"
+config ZMK_SPLIT_ROLE_CENTRAL
+  default y
+
 endif
