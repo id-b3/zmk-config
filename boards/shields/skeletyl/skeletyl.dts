@@ -10,6 +10,27 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
+        zmk,underglow = &led_strip;
+    };
+
+    &spi1 {
+        compatible = "nordic,nrf-spim";
+        status = "okay";
+        mosi-pin = <13>;  // Pro Micro pin 16 (P0.13 on nRF52840)
+        sck-pin = <15>;   // Pro Micro pin 18 (P0.15)
+        // MISO not used but required by SPI definition
+        miso-pin = <14>;  // Pro Micro pin 14 (P0.14)
+        
+        led_strip: ws2812@0 {
+            compatible = "worldsemi,ws2812-spi";
+            label = "WS2812";
+            reg = <0>;
+            spi-max-frequency = <4000000>;
+            chain-length = <10>; // Match your actual LED count
+            spi-one-frame = <0x70>;
+            spi-zero-frame = <0x40>;
+            color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+        };
     };
     
     left_encoder: encoder_left {

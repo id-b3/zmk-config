@@ -57,12 +57,25 @@
 };
 
 / {
-    chosen { zmk,battery = &vbatt; };
+    chosen {
+        zmk,battery = &vbatt;
+        zmk,underglow = &led_strip;
+        };
 
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
         label = "VBATT";
     };
+    
+    led_strip: led_strip {
+        compatible = "worldsemi,ws2812-spi";
+        label = "LED_STRIP";
+        spi-max-frequency = <4000000>;
+        chain-length = <10>; // Set to your actual LED count
+        spi-one-frame = <0x70>;
+        spi-zero-frame = <0x40>;
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+       };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
